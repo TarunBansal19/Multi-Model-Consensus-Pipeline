@@ -1,0 +1,15 @@
+{
+  "name": "multi-model-consensus-pipeline",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "bun run dev.ts",
+    "build": "bun run --cwd frontend build", 
+    "start": "bun run --cwd backend start",
+    "install:all": "bun install"
+  }
+}
