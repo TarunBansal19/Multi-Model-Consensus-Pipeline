@@ -64,33 +64,11 @@ function ModelLogo({
 }
 
 export function App() {
-  const [health, setHealth] = useState<"checking" | "online" | "offline">("checking");
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [responses, setResponses] = useState<ModelResponse[]>([]);
   const [consensus, setConsensus] = useState<ConsensusResponse | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-    async function checkBackendHealth() {
-      try {
-        const res = await fetch(`${API_BASE_URL}/health`);
-        const data = await res.json();
-        if (isMounted && data && data.status === "ok") {
-          setHealth("online");
-        } else if (isMounted) {
-          setHealth("offline");
-        }
-      } catch (err) {
-        if (isMounted) setHealth("offline");
-      }
-    }
-    checkBackendHealth();
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -146,7 +124,7 @@ export function App() {
         </div>
 
         {/* Health Indicator Badge (Monochrome / Neutral) */}
-        <div
+        {/* <div
           className="inline-flex items-center gap-2 bg-[#181818] border border-[#2d2d2d] px-3 py-1 rounded-full font-['JetBrains_Mono',monospace] text-xs text-[#888888] shrink-0"
           title={`Ping status of ${API_BASE_URL}/health`}
         >
@@ -168,7 +146,7 @@ export function App() {
               <span className="text-[#888888]">Backend: Offline</span>
             </>
           )}
-        </div>
+        </div> */}
       </header>
 
       {/* Main Content Area (Two Columns, Fill Height without Page Scroll) */}
