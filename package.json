@@ -10,6 +10,7 @@
     "dev": "bun run dev.ts",
     "build": "bun run --cwd frontend build", 
     "start": "bun run --cwd backend start",
-    "install:all": "bun install"
+    "install:all": "bun install",
+    "postinstall": "bun run build"
   }
 }

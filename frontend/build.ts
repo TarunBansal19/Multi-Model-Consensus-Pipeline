@@ -2,6 +2,9 @@ import tailwind from "bun-plugin-tailwind";
 import { rm } from "node:fs/promises";
 import path from "node:path";
 
+// Ensure the build script always runs with the directory containing it as the CWD
+process.chdir(import.meta.dir);
+
 const outdir = path.join(process.cwd(), "dist");
 await rm(outdir, { recursive: true, force: true });
 
