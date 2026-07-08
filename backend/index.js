@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors(
     {
-        origin: ["https://multi-model-consensus-pipeline-epsilon19.vercel.app/"],
+        origin: "*",
         methods: ["GET", "POST"],
         allowedHeaders: ["Content-Type"]
     }
