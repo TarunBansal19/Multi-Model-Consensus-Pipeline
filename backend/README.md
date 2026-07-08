@@ -13,11 +13,11 @@ graph TD
 
     subgraph Parallel Evaluation Layer
         Layer --> OpenAI[models/openai.js<br>gpt-5.4-mini]
-        Layer --> Gemini[models/gemini.js<br>gemini-2.5-flash]
-        Layer --> Claude[models/claude.js<br>claude-3-haiku]
+        Layer --> Gemini[models/gemini.js<br>gemini-3.1-flash-lite]
+        Layer --> Claude[models/claude.js<br>claude-haiku-4.5]
     end
 
-    OpenAI --> Aggregator[aggregator.js<br>claude-opus-4.6]
+    OpenAI --> Aggregator[aggregator.js<br>gpt-5.4-mini]
     Gemini --> Aggregator
     Claude --> Aggregator
 
@@ -29,7 +29,7 @@ graph TD
    - OpenAI (`gpt-5.4-mini`) via [openai.js](file:///home/epsilon/Codedump/genai-cohort/Multi_Model_Consensus_pipeline/backend/models/openai.js)
    - Google Gemini (`gemini-3.1-flash-lite`) via [gemini.js](file:///home/epsilon/Codedump/genai-cohort/Multi_Model_Consensus_pipeline/backend/models/gemini.js)
    - Anthropic Claude (`claude-haiku-4.5`) via [claude.js](file:///home/epsilon/Codedump/genai-cohort/Multi_Model_Consensus_pipeline/backend/models/claude.js)
-3. **Consensus Aggregator**: The results are passed to [aggregator.js](file:///home/epsilon/Codedump/genai-cohort/Multi_Model_Consensus_pipeline/backend/aggregator.js) which prompts a judge model (`claude-opus-4.6`) to evaluate the answers based on factual accuracy, completeness, and clarity.
+3. **Consensus Aggregator**: The results are passed to [aggregator.js](file:///home/epsilon/Codedump/genai-cohort/Multi_Model_Consensus_pipeline/backend/aggregator.js) which prompts a judge model (`gpt-5.4-mini`) to evaluate the answers based on factual accuracy, completeness, and clarity.
 4. **Structured JSON Output**: The judge either returns the best response as-is or synthesizes a merged version.
 
 ---

@@ -34,6 +34,7 @@ Start both the backend server and frontend development server concurrently with 
 ```bash
 bun run dev
 ```
+
 - **Frontend dev server**: http://localhost:5173 (proxies API requests to backend)
 - **Backend API server**: http://localhost:7000
 
@@ -45,4 +46,5 @@ Build the frontend static assets and run the backend production server:
 bun run build
 bun run start
 ```
+
 The production server will serve the UI and API at http://localhost:7000.
