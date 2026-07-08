@@ -5,7 +5,7 @@ import openaiLogo from "../assets/openai.png";
 import geminiLogo from "../assets/gemini.jpg";
 import claudeLogo from "../assets/claude.png";
 
-const API_BASE_URL = import.meta.env?.VITE_API_BASE_URL || (window.location.protocol === "file:" ? "http://localhost:7000" : "");
+const API_BASE_URL = "https://multi-model-consensus-pipeline-dam5.onrender.com";
 
 interface ModelResponse {
   model: "openai" | "gemini" | "claude";
